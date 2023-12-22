@@ -1,38 +1,43 @@
-const Workout = require('../models/workoutModel')  
+const Workout = require("../models/workoutModel");
+const mongoose = require("mongoose");
+const getWorkouts = async (req, res) => {
+  const workouts = await Workout.find({}).sort({ createdAt: -1 });
 
-const getWorkouts = async (req,res)=>{
-    const workouts = await Workout.find({}).sort({createdAt:-1})
+  res.status(200).json(workouts);
+};
 
-    res.status(200).json(workouts)
-}
+const getWorkout = async (req, res) => {
+  const { id } = req.params;
 
-const getWorkout = async (req,res)=>{
-    const {id} =req.params
-    const workout = await Workout.findById(id)
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({
+      error: "No such Workout found",
+    });
+  }
 
-    if(!workout){
-        return res.status(400).json({
-            error:"No such Workout found"
-        })
-    }
+  const workout = await Workout.findById(id);
 
-    res.status(200).json(workouts)
-}
+  if (!workout) {
+    return res.status(400).json({
+      error: "No such Workout found",
+    });
+  }
 
+  res.status(200).json(workout);
+};
 
-const createWorkout = async (req,res)=> {
-    const { title, load, reps } = req.body;
-    try {
-      const workout = await Workout.create({ title, load, reps });
-      res.status(200).json(workout);
-    } catch (error) {
-      res.status(400).json({ msg: error.message });
-    }
-} 
+const createWorkout = async (req, res) => {
+  const { title, load, reps } = req.body;
+  try {
+    const workout = await Workout.create({ title, load, reps });
+    res.status(200).json(workout);
+  } catch (error) {
+    res.status(400).json({ msg: error.message });
+  }
+};
 
-
-module.exports ={
-    createWorkout,
-    getWorkout,
-    getWorkouts
-}
+module.exports = {
+  createWorkout,
+  getWorkout,
+  getWorkouts,
+};

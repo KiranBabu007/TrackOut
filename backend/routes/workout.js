@@ -4,9 +4,9 @@ const { createWorkout, getWorkout, getWorkouts } = require("../controllers/worko
 
 const router = express.Router();
 
-router.get("/",getWorkout);
+router.get("/",getWorkouts);
 
-router.get("/:id",getWorkouts);
+router.get("/:id",getWorkout);
 
 router.post("/", createWorkout);
 

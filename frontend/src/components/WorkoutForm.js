@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-impor;
-
 const WorkoutForm = () => {
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
@@ -19,16 +17,15 @@ const WorkoutForm = () => {
         "Content-Type": "application/json",
       },
     });
-    const json = await response.json;
+    const json = await response.json();
     if (!response.ok) {
       setError(json.error);
-      return;
-  
+    } else {
       setError(null);
-      setTitle('')
-      setLoad('')
-      setReps('')
-      console.log("New Workout added",json)
+      setTitle("");
+      setLoad("");
+      setReps("");
+      console.log("New Workout added", json);
     }
   };
 
@@ -55,11 +52,10 @@ const WorkoutForm = () => {
         onChange={(e) => setReps(e.target.value)}
         value={reps}
       />
-
       <button>Add Workout</button>
+      {error && <div className="error">{error}</div>}
     </form>
   );
 };
 
-
-export default WorkoutForm
+export default WorkoutForm;

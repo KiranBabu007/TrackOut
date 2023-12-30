@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 
 const WorkoutForm = () => {
   const [title, setTitle] = useState("");
@@ -20,12 +21,13 @@ const WorkoutForm = () => {
     const json = await response.json();
     if (!response.ok) {
       setError(json.error);
-    } else {
+    }
+    if (response.ok) {
       setError(null);
       setTitle("");
       setLoad("");
       setReps("");
-      console.log("New Workout added", json);
+      console.log("new workout added:", json);
     }
   };
 

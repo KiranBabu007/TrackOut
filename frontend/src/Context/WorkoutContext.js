@@ -23,7 +23,7 @@ export const WorkoutContextProvider = ({ children }) => {
   return (
     <WorkoutContext.Provider
       value={{
-        state,
+        ...state,
         dispatch,
       }}
     >

@@ -1,4 +1,4 @@
-
+import { useWorkoutsContext } from "../hooks/WorkoutContext"
 
 const WorkoutDetails = ({workout}) => {
 
@@ -7,7 +7,10 @@ const WorkoutDetails = ({workout}) => {
       method: 'DELETE'
     })
     const json = await response.json()
-    
+
+    if(response.ok){
+      dispatch
+    }
   }
 
   return (

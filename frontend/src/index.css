@@ -68,7 +68,6 @@ header a {
 }
 
 /* new workout form */
-
 label,
 input {
   display: block;
@@ -91,11 +90,14 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
-.error {
+div.error {
   padding: 10px;
   background: #ffefef;
   border: 1px solid var(--error);
   color: var(--error);
   border-radius: 4px;
   margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
 }

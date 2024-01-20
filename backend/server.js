@@ -14,6 +14,7 @@ app.use(cors({
   optionsSuccessStatus: 204,
 }));
 
+
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
@@ -22,7 +23,11 @@ app.use((req, res, next) => {
 app.use("/api/workouts", workoutroute);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    retryWrites: true, 
+  })
   .then(() => {
     app.listen(process.env.PORT, () => {
       console.log(`Connected to db and Listening on port ${process.env.PORT}`);

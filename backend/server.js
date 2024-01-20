@@ -8,6 +8,12 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
+app.use(cors({
+  origin: 'http://your-frontend-domain.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+}));
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);

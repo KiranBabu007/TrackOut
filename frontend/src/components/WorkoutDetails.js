@@ -7,7 +7,7 @@ const WorkoutDetails = ({ workout }) => {
 
   const handleClick = async () => {
     const response = await fetch(
-      "https://track-out.onrender.com/api/workouts/" + workout._id,
+      "https://track-out-server.vercel.app/api/workouts/" + workout._id,
       {
         method: "DELETE",
       }

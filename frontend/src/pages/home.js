@@ -8,7 +8,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("https://track-out.onrender.com/api/workouts");
+      const response = await fetch("https://track-out-server.vercel.app/api/workouts");
       const json = await response.json();
 
     

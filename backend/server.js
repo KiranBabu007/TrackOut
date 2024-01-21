@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const express = require("express");
-const workoutroute = require("./api/workouts");
+const workoutroute = require("./routes/workouts");
 const mongoose = require("mongoose");
 const app = express();
 const cors = require("cors");
@@ -9,7 +9,7 @@ const cors = require("cors");
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://track-out.vercel.app/",
+    origin: "**",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
     optionsSuccessStatus: 204,

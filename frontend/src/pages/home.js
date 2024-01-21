@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useWorkoutsContext } from "../hooks/WorkoutContext";
 import WorkoutForm from "../components/WorkoutForm";
 import WorkoutDetails from "../components/WorkoutDetails";
+
 const Home = () => {
   const { workouts, dispatch } = useWorkoutsContext();
 
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        "https://track-out.onrender.com/api/workouts"
+        "/api/workouts"
       );
       const json = await response.json();
 

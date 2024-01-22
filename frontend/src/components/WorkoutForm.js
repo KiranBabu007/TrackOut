@@ -14,7 +14,7 @@ const WorkoutForm = () => {
     e.preventDefault();
 
     const workout = { title, load, reps };
-    const response = await fetch("/api/workouts/", {
+    const response = await fetch(" https://b022-103-182-167-52.ngrok-free.app/api/workouts", {
       method: "POST",
       body: JSON.stringify(workout),
       headers: {

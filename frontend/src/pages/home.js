@@ -9,7 +9,7 @@ const Home = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        " https://3912-103-182-167-52.ngrok-free.app/api/workouts"
+        "/api/workouts"
       );
       const json = await response.json();
 

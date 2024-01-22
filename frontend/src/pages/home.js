@@ -8,10 +8,9 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("https://track-out-server.vercel.app/api/workouts");
+      const response = await fetch("http://103.182.167.52/:4000/api/workouts");
       const json = await response.json();
 
-    
       if (response.ok) {
         dispatch({ type: "SET_WORKOUTS", payload: json });
       }

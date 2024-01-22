@@ -7,7 +7,7 @@ const WorkoutDetails = ({ workout }) => {
 
   const handleClick = async () => {
     const response = await fetch(
-      "https://track-out-server.vercel.app/api/workouts/" + workout._id,
+      "http://103.182.167.52/:4000/api/workouts/" + workout._id,
       {
         method: "DELETE",
       }

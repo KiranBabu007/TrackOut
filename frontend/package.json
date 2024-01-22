@@ -1,4 +1,5 @@
-{ "proxy":"https://3912-103-182-167-52.ngrok-free.app",
+{
+  "proxy": " https://8982-103-182-167-52.ngrok-free.app",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
